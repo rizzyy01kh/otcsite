@@ -1,0 +1,195 @@
+/* ================= GENERAL ================= */
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+}
+
+/* ================= FORM ================= */
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+input,
+select,
+textarea {
+  height: 44px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  background: #ffffff;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+  width: 100%;
+}
+
+/* Make select look like input */
+select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #555 50%),
+    linear-gradient(135deg, #555 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 18px,
+    calc(100% - 14px) 18px;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* ================= BUTTONS ================= */
+button {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 26px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.warning {
+  background: #f59e0b;
+}
+
+.danger {
+  background: #dc2626;
+}
+
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  background: #ffffff;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eeeeee;
+  text-align: left;
+}
+
+th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* ================= MODAL ================= */
+#editModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  width: 380px;
+}
+
+.modal-box img {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* ================= TOAST POPUP ================= */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #16a34a;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all .3s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.error {
+  background: #dc2626;
+}
+
+/* MODAL SHARED */
+#addModal,
+#editModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 24px;
+  width: 420px;
+  border-radius: 14px;
+  animation: scaleIn .25s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-box input,
+.modal-box select,
+.modal-box textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}

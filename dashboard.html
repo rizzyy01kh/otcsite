@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Manager</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  padding: 30px;
+}
+
+h1 { margin-bottom: 20px; }
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+input, select, button {
+  padding: 10px;
+  margin: 6px;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.warning { background: #f59e0b; }
+.danger { background: #dc2626; }
+
+table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* MODAL */
+#editModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 360px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🛠 Product Manager</h1>
+
+<!-- ADD PRODUCT -->
+<div class="card">
+  <input id="name" placeholder="Product Name">
+
+  <!-- BRAND -->
+  <select id="brand">
+    <option value="">Select Brand</option>
+    <option value="HP">HP</option>
+    <option value="Canon">Canon</option>
+    <option value="Brother">Brother</option>
+    <option value="Epson">Epson</option>
+    <option value="ION">ION</option> <!-- ✅ TONER BRAND -->
+  </select>
+
+  <!-- CATEGORY -->
+  <select id="category">
+    <option value="">Select Category</option>
+    <option value="printer">Printer</option>
+    <option value="toner">Toner</option>
+    <option value="computer">Computer</option> <!-- ✅ -->
+  </select>
+
+  <input id="price" type="number" placeholder="Price">
+  <input id="stock" type="number" placeholder="Stock">
+  <input id="imageFile" type="file">
+
+  <br>
+  <button id="saveBtn" disabled>Save Product</button>
+</div>
+
+<!-- TABLE -->
+<table>
+<thead>
+<tr>
+  <th>Image</th>
+  <th>Name</th>
+  <th>Brand</th>
+  <th>Category</th>
+  <th>Price</th>
+  <th>Stock</th>
+  <th>Action</th>
+</tr>
+</thead>
+<tbody id="table"></tbody>
+</table>
+
+<!-- EDIT MODAL -->
+<div id="editModal">
+  <div class="modal-box">
+    <h2>Edit Product</h2>
+
+    <input id="m_name" placeholder="Name">
+
+    <!-- BRAND -->
+    <select id="m_brand">
+      <option value="HP">HP</option>
+      <option value="Canon">Canon</option>
+      <option value="Brother">Brother</option>
+      <option value="Epson">Epson</option>
+      <option value="ION">ION</option> <!-- ✅ -->
+    </select>
+
+    <!-- CATEGORY -->
+    <select id="m_category">
+      <option value="printer">Printer</option>
+      <option value="toner">Toner</option>
+      <option value="computer">Computer</option> <!-- ✅ -->
+    </select>
+
+    <input id="m_price" type="number" placeholder="Price">
+    <input id="m_stock" type="number" placeholder="Stock">
+    <input type="file" id="m_image">
+
+    <img id="m_preview" width="120">
+
+    <br><br>
+    <button onclick="saveEdit()">Save</button>
+    <button class="danger" onclick="closeEdit()">Cancel</button>
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

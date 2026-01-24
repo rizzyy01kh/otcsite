@@ -1,0 +1,160 @@
+:root {
+  --main: #2563eb;
+  --dark: #1f2937;
+}
+
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f9fafb);
+  margin: 0;
+  padding: 24px;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--main);
+  margin-bottom: 16px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.product-wrapper {
+  max-width: 1000px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 30px 60px rgba(0,0,0,.12);
+
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp .6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== IMAGE ===== */
+.product-wrapper img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform .4s ease;
+}
+
+.product-wrapper img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== INFO ===== */
+.product-info h1 {
+  margin-top: 0;
+  color: var(--dark);
+  font-size: 24px;
+}
+
+.price {
+  font-size: 28px;
+  color: var(--main);
+  margin: 12px 0;
+}
+
+.specs p {
+  margin: 6px 0;
+  color: #374151;
+  font-size: 15px;
+}
+
+/* ===== BUTTONS ===== */
+.actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.actions a {
+  flex: 1;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: .3s;
+  font-size: 15px;
+}
+
+.telegram {
+  background: #0088cc;
+  color: white;
+}
+
+.telegram:hover {
+  background: #0072aa;
+  transform: translateY(-2px);
+}
+
+.buy {
+  border: 2px solid var(--main);
+  color: var(--main);
+}
+
+.buy:hover {
+  background: var(--main);
+  color: white;
+}
+
+/* =======================
+   📱 MOBILE FIX (IMPORTANT)
+   ======================= */
+@media (max-width: 768px) {
+
+  body {
+    padding: 14px;
+  }
+
+  .product-wrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 14px;
+  }
+
+  .product-wrapper img {
+    max-height: 260px;
+  }
+
+  .product-info h1 {
+    font-size: 20px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions a {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+

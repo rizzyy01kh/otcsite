@@ -1,0 +1,161 @@
+/* ======================================
+   COLOR THEME + SNOW ONLY
+   NO SIZE / NO LAYOUT CHANGES
+====================================== */
+
+/* ===== COLOR PALETTE ===== */
+:root {
+  --warm-orange: #f2994a;
+  --soft-orange: #f6b17a;
+  --warm-red: #eb5757;
+  --deep-red: #c0392b;
+}
+
+/* ======================================
+   FULL SITE BACKGROUND COLOR
+====================================== */
+body {
+  background: linear-gradient(
+    180deg,
+    var(--warm-orange),
+    var(--warm-red)
+  );
+  color: #fff;
+}
+
+/* ======================================
+   HEAVY SNOW EFFECT (GLOBAL)
+====================================== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.9) 2px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,.7) 1.5px, transparent 2.5px),
+    radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 2px);
+  background-size:
+    120px 120px,
+    180px 180px,
+    240px 240px;
+  animation: snowFall 20s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes snowFall {
+  from {
+    background-position:
+      0 0,
+      0 0,
+      0 0;
+  }
+  to {
+    background-position:
+      0 1400px,
+      0 1800px,
+      0 2200px;
+  }
+}
+
+/* ======================================
+   HEADER (KEEP WHITE)
+====================================== */
+header {
+  background: #ffffff;
+}
+
+/* ======================================
+   HERO COLOR ONLY
+====================================== */
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--warm-orange),
+    var(--warm-red)
+  );
+}
+
+/* ======================================
+   PRODUCTS SECTION COLOR
+====================================== */
+#printers {
+  background: linear-gradient(
+    180deg,
+    var(--warm-orange),
+    var(--deep-red)
+  );
+}
+
+/* ======================================
+   PRODUCT GRID BACKGROUND (BETWEEN CARDS)
+====================================== */
+.products {
+  background: linear-gradient(
+    180deg,
+    var(--soft-orange),
+    var(--warm-red)
+  );
+}
+
+/* ======================================
+   PRODUCT CARD COLORS ONLY
+====================================== */
+.product {
+  background: #ffffff;
+}
+
+/* Product name */
+.product h3 {
+  color: #222;
+}
+
+/* Price */
+.product span {
+  color: var(--warm-red);
+  font-weight: 600;
+}
+
+/* Buy button color */
+.product button,
+.product .buy-btn {
+  background: linear-gradient(
+    135deg,
+    #ff7a18,
+    #ff3d3d
+  );
+}
+
+.product button:hover,
+.product .buy-btn:hover {
+  background: linear-gradient(
+    135deg,
+    #ff3d3d,
+    #ff7a18
+  );
+}
+
+/* ======================================
+   FILTER BUTTON ACTIVE COLOR
+====================================== */
+.filters button.active {
+  background: linear-gradient(
+    135deg,
+    #ff7a18,
+    #ff3d3d
+  );
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ======================================
+   FOOTER COLOR
+====================================== */
+footer {
+  background: linear-gradient(
+    135deg,
+    var(--warm-red),
+    var(--deep-red)
+  );
+  color: #fff;
+}
